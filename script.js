@@ -7,7 +7,7 @@ let priceValidation = Number(0);
 
 let total = document.getElementById("total");
 
-let itemQty =document.getElementById("item-qty-input");
+let itemQty =document.getElementById("item-qty");
 
 let num = Number(0);
 
@@ -15,12 +15,13 @@ form.addEventListener("submit",(e)=>{
 	e.preventDefault();
 	let inputValue = document.getElementById("item-name-input").value;
 	let priceValue = document.getElementById("item-price-input").value;
-	num = Number(num+1);
-	priceValidation+=Number(priceValue);
+	let qtyValue = document.getElementById("item-qty-input").value;
 	
-	let sl = document.createElement("div");
-	sl.innerText = num;
-	itemQty.appendChild(sl);
+	priceValidation+=Number(priceValue * qtyValue);
+	
+	let qty = document.createElement("div");
+	qty.innerText = qtyValue;
+	itemQty.appendChild(qty);
 	
 	let item = document.createElement("div");
 	item.innerText = inputValue;
