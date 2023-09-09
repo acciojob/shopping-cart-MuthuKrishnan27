@@ -1,6 +1,6 @@
 
 /* Your CSS Code here. */
-#item-qty-input{
+#table{
 	display:flex;
 	justify-content : space-around;
 }
