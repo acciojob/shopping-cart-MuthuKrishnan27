@@ -5,19 +5,21 @@ let priceColumn = document.getElementById("price")
 const form = document.getElementById("form");
 let priceValidation = Number(0);
 
-let total = document.getElementById("total");
+let grantTotal = document.getElementById("grant-total");
 
 let itemQty =document.getElementById("item-qty");
 
-let num = Number(0);
+let amount = document.getElementById("amount");
+
+let currentTotal = Number(0);
 
 form.addEventListener("submit",(e)=>{
 	e.preventDefault();
 	let inputValue = document.getElementById("item-name-input").value;
 	let priceValue = document.getElementById("item-price-input").value;
 	let qtyValue = document.getElementById("item-qty-input").value;
-	
-	priceValidation+=Number(priceValue * qtyValue);
+	currentTotal = Number(priceValue * qtyValue);
+	priceValidation+=Number(currentTotal);
 	
 	let qty = document.createElement("div");
 	qty.innerText = qtyValue;
@@ -30,7 +32,11 @@ form.addEventListener("submit",(e)=>{
 	let price = document.createElement("div");
 	price.innerText = priceValue;
 	priceColumn.appendChild(price);
+
+	let amountTotal = document.createElement("div");
+	amountTotal.innerText = currentTotal;
+	amount.appendChild(amountTotal);
 	
-	total.innerText=`Total = ${priceValidation}`;
+	grantTotal.innerText=`Total = ${priceValidation}`;
 	form.reset();
 });
