@@ -1,2 +1,6 @@
 
 /* Your CSS Code here. */
+#table{
+	display:flex;
+	justify-content : space-around;
+}
